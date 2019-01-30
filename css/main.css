@@ -1,0 +1,8 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url(../img/summer-wallpaper.jpg);
+    background-size: cover;
+}
