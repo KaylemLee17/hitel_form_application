@@ -1,49 +1,51 @@
 <?php
-    //session start
-    if(!isset($_SESSION['username'])) {
-        $_SESSION['msg'] = "You must login first!";
-        header('location: login.php');
+session_start();
+    include_once 'user.php';
+    $user = new User(); $uid = $_SESSION['uid'];
+    if (!$user->get_session()){
+        header("location:login.php");
     }
-
-    if(isset($_GET[logout])) {
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location: login.php');
-        exit;
-    }
+    if (isset($_GET['q'])){
+        $user->user_logout();
+    header("location:login.php");
+ }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Kaylem's Hotel booking form</title>
+    <title>Welcome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css">
+    <script src="main.js"></script>
 </head>
 <body>
-    <div>
-        <div class="heading">
-            <h2>Online Hotel Booking Form</h2>
+<div id="container">
+    <div id="header"><a href="login.php?q=logout">LOGOUT</a></div>
+    <div id="main-body">
+    <h1>Hello <?php $user->get_username($uid); ?> and welcome to online hotel booking.</h1>
+</div>
+
+<div class="form">
+    <form action="index.php" method="post">
+        <div>
+            Check in date:
+            <input type="date" name="date" id="date" class="form">
+            <br>
+            Check out date:
+            <input type="date" name="date" id="date" class="form">
         </div>
-        <div class="form">
-            <form action="index.php" method="post">
-                <div>
-                    Check in date:
-                    <input type="date" name="date" id="date" class="form">
-                    <br>
-                    Check out date:
-                    <input type="date" name="date" id="date" class="form">
-                </div>
-                <div class="hotel">
-                    
-                </div>
-                <br>
-                <button type="submit" name="submit" class="submit_btn">Submit</button>
-            </form>
-        
-    </div>
+        <div class="hotel">
+            
+        </div>
+        <br>
+        <button type="submit" name="submit" class="submit_btn">Submit</button>
+    </form>
+</div>
+
+<div id="footer"></div>
+
 </body>
 </html>
-
