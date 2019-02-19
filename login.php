@@ -8,7 +8,7 @@ session_start();
         $login = $user->check_login($username, $password);
         if ($login) {
             // Registration Success
-           header("location:index.php");
+           header("location:booking.php");
         } else {
 
             // Registration Failed
@@ -69,7 +69,7 @@ session_start();
 </tr>
 <tr>
 <td></td>
-<td><a href="register.php">Register new user</a></td>
+<td><a href="index.php">Register new user</a></td>
 </tr>
 </tbody>
 </table>

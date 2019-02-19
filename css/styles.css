@@ -1,8 +1,9 @@
 body {
     background-image: url(/img/summer-wallpaper.jpg);
-    background-repeat: no-repeat;
+    background-repeat: auto;
     background-size: cover;
     background-position: absolute;
+
 }
 
 .container {
