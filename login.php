@@ -8,7 +8,7 @@ session_start();
         $login = $user->check_login($username, $password);
         if ($login) {
             // Registration Success
-           header("location:booking.php");
+           header("location:home.php");
         } else {
 
             // Registration Failed
@@ -26,7 +26,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="//css/styles.css">
     <script src="main.js"></script>
 </head>
 <body>
@@ -68,7 +68,6 @@ session_start();
 <td><input onclick="return(submitlogin());" type="submit" name="submit" value="Login" </td>
 </tr>
 <tr>
-<td></td>
 <td><a href="index.php">Register new user</a></td>
 </tr>
 </tbody>
